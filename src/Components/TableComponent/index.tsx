@@ -1,28 +1,8 @@
 import React from 'react';
 
 import './tableComponent.css';
-import { TableDataType, TableRowDataType } from '../../Utils/Types/TableDataTypes';
+import { TableDataType } from '../../Utils/Types/TableDataTypes';
 
-
-// const TableHeaderComponent = () => {
-//     return (
-//         <div className='table-header-component-container'>
-//             <div className='table-header-box box-1'>S.No.</div>
-//             <div className='table-header-box box-2'>Percentage funded</div>
-//             <div className='table-header-box box-3'>Amount pledged</div>
-//         </div>
-//     )
-// }
-
-// const TableDataRowComponent = ({col1,col2,col3}: TableRowDataType) => {
-//     return (
-//         <div className='table-data-component-container'>
-//             <div className='table-data-box box-1'>{col1}</div>
-//             <div className='table-data-box box-2'>{col2}</div>
-//             <div className='table-data-box box-3'>{col3}</div>
-//         </div>
-//     )
-// }
 
 interface ITableComponent{
     pageNumber: number;
@@ -33,8 +13,6 @@ interface ITableComponent{
 const TableComponent = ({data,pageNumber}: ITableComponent) => {
     return (
         <div className='table-component-container' >
-            {/* <TableHeaderComponent /> */}
-            {/* <TableDataRowComponent col1={1} col2={2} col3={3} /> */}
             <table className='table-class'>
                     <tr>
                         <th>S.No.</th>

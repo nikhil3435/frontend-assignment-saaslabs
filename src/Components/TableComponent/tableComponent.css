@@ -23,7 +23,9 @@
         th{
             color: white;
             background-color: #f38168;
-            font-weight: 800;
+            font-weight: 500;
+            font-family: 'Bold';
+            font-size: 1.5rem;
         }
         th,td{
             padding: 1.5rem 1rem;

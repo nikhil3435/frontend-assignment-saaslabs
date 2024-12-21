@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-// import leftArrow from "../../Assets/Images/leftArrow.svg";
-// import leftArrowWithBg from "../../Assets/Images/leftBgArrow.svg";
-// import rightArrowWithBg from "../../Assets/Images/rightBgArrow.svg";
-// import rightArrow from "../../Assets/Images/rightArrow.svg";
+import leftArrow from "../../Assets/Images/leftArrow.svg";
+import leftArrowWithBg from "../../Assets/Images/leftBgArrow.svg";
+import rightArrowWithBg from "../../Assets/Images/rightBgArrow.svg";
+import rightArrow from "../../Assets/Images/rightArrow.svg";
 
 
 import './dashboard.css';
@@ -37,6 +37,18 @@ const Dashboard = () => {
         }
     }
 
+    const goToNextPage = () => {
+        if(pageNumber != 0){
+            _setPageNumber(pageNumber - 1)
+        }
+    }
+
+    const goToPreviousPage = () => {
+        if(pageNumber != Number(Number((data.length/5)).toFixed(0))){
+            _setPageNumber(pageNumber + 1)
+        }
+    }
+
     useEffect(()=>{
 
         _getTableDataByFetching()
@@ -63,12 +75,10 @@ const Dashboard = () => {
                 </div>
             </div>
             <div className='buttons-container'>
-                <button  className='button' disabled={pageNumber === 0} onClick={()=> _setPageNumber(pageNumber - 1)}  >prev </button>
-                <button  className='button' disabled={pageNumber === Number(Number((data.length/5)).toFixed(0))} onClick={()=> _setPageNumber(pageNumber + 1)} >next</button>
-                {/* <div>
-                    <img src={leftArrow} />
-                    <img src={rightArrowWithBg} />
-                </div> */}
+                <div>
+                    <img src={pageNumber === 0 ?  leftArrow: leftArrowWithBg} onClick={goToNextPage} className={`button-image margin-right ${pageNumber != 0? 'button-hover': '' }`}  />
+                    <img src={pageNumber === Number(Number((data.length/5)).toFixed(0)) ? rightArrow:  rightArrowWithBg} onClick={goToPreviousPage} className={`button-image ${pageNumber != Number(Number((data.length/5)).toFixed(0))? 'button-hover': '' }`} />
+                </div>
             </div>
 
         </div>

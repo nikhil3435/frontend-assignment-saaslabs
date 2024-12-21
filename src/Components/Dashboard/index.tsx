@@ -38,13 +38,13 @@ const Dashboard = () => {
     }
 
     const goToNextPage = () => {
-        if(pageNumber != 0){
+        if(pageNumber !== 0){
             _setPageNumber(pageNumber - 1)
         }
     }
 
     const goToPreviousPage = () => {
-        if(pageNumber != Number(Number((data.length/5)).toFixed(0))){
+        if(pageNumber !== Number(Number((data.length/5)).toFixed(0))){
             _setPageNumber(pageNumber + 1)
         }
     }
@@ -75,10 +75,8 @@ const Dashboard = () => {
                 </div>
             </div>
             <div className='buttons-container'>
-                <div>
-                    <img src={pageNumber === 0 ?  leftArrow: leftArrowWithBg} onClick={goToNextPage} className={`button-image margin-right ${pageNumber != 0? 'button-hover': '' }`}  />
-                    <img src={pageNumber === Number(Number((data.length/5)).toFixed(0)) ? rightArrow:  rightArrowWithBg} onClick={goToPreviousPage} className={`button-image ${pageNumber != Number(Number((data.length/5)).toFixed(0))? 'button-hover': '' }`} />
-                </div>
+                    <img alt='previous' src={pageNumber === 0 ?  leftArrow: leftArrowWithBg} onClick={goToNextPage} className={`button-image margin-right ${pageNumber !== 0? 'button-hover': '' }`}  />
+                    <img alt='next' src={pageNumber === Number(Number((data.length/5)).toFixed(0)) ? rightArrow:  rightArrowWithBg} onClick={goToPreviousPage} className={`button-image ${pageNumber !== Number(Number((data.length/5)).toFixed(0))? 'button-hover': '' }`} />
             </div>
 
         </div>
